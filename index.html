@@ -30,8 +30,18 @@
         /></a>
         <nav class="header__nav">
           <ul>
-            <li><a href="">表單下載</a></li>
-            <li><a href="">會員專區</a></li>
+            <li><a href="./download.html">表單下載</a></li>
+            <li class="has-child">
+              <a>會員專區</a>
+              <div class="header-child-list">
+                <ul>
+                  <li><a href="./member-info.html">基本資料</a></li>
+                  <li><a href="./member-password.html">變更密碼</a></li>
+                  <li><a href="./member-term.html">個資使用條款</a></li>
+                  <li><a href="">登出</a></li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
@@ -85,8 +95,8 @@
           </div>
           <div class="project-list__content">
             <div class="check"><input type="checkbox" class="checkbox" /></div>
-            <p class="create-date">2024/09/01</p>
-            <p class="update-time">2024/09/01 10:30</p>
+            <p class="create-date"><span>建立日期</span>2024/09/01</p>
+            <p class="update-time"><span>更新時間</span>2024/09/01 10:30</p>
             <p class="project-name">
               彰化縣109學年度OO國中特殊教育學生個別化教育計畫
             </p>

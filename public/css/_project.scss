@@ -40,6 +40,9 @@
             }
             p {
                 margin: 0;
+                span {
+                    display: none;
+                }
             }
         }
         &__title {
@@ -50,6 +53,55 @@
         &__content {
             background-color: $white;
             box-shadow: $shadow-blue;
+        }
+    }
+    @media screen and (max-width: 991px) {
+        &-list {
+            &__title {
+                display: none;
+            }
+            &__content {
+                flex-wrap: wrap;
+                align-items: flex-start;
+                column-gap: 0;
+                row-gap: 12px;
+                position: relative;
+                .check {
+                    order: 1;
+                }
+                .project-name {
+                    order: 2;
+                    width: calc(100% - 20px);
+                    padding-left: 12px;
+                }
+                .update-time, .create-date {
+                    // width: calc((100% - 50px) / 2);
+                    width: calc(100% - 50px);
+                    padding-right: 12px;
+                    font-size: 13px;
+                    color: #818181;
+                    display: flex;
+                    gap: 8px;
+                    span {
+                        display: block;
+                        font-weight: 700;
+                    }
+                }
+                .create-date {
+                    order: 3;
+                }
+                .update-time {
+                    order: 4;
+                    margin-top: -8px;
+                }
+                .function {
+                    width: 50px;
+                    order: 5;
+                    position: absolute;
+                    right: 20px;
+                    bottom: 20px;
+                }
+            }
         }
     }
 }
@@ -97,6 +149,15 @@
                 }
             }
         }
+    }
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+        .select {
+            width: calc((100% - 20px) / 2);
+        }
+         &__main {
+            width: 100%;
+         }
     }
 }
 

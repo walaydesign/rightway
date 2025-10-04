@@ -1,0 +1,80 @@
+.member {
+    padding-bottom: 100px;
+    .container {
+        display: flex;
+        gap: 32px;
+    }
+    &-nav {
+        width: 280px;
+        background-color: $primary-100;
+        border-radius: 32px;
+        padding: 40px 32px;
+        li {
+            margin-bottom: 12px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            border-radius: 12px;
+            gap: 4px;
+            padding: 12px 20px;
+            transition: $transition;
+            span {
+                font-size: 20px;
+                &::before {
+                    color: $primary-900;
+                    transition: $transition;
+                }
+            }
+            p {
+                color: $primary-900;
+                margin: 0;
+                transition: $transition;
+            }
+            &.active {
+                background-color: $primary-600;
+                span {
+                    &::before {
+                        color: $white;
+                    }
+                }
+                p {
+                    color: $white;
+                }
+            }
+        }
+    }
+    &-main {
+        width: calc(100% - 280px - 32px);
+        padding: 40px;
+        background-color: $white;
+        border-radius: 32px;
+        box-shadow: $shadow-blue;
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+    }
+    &-info {
+        .row {
+            margin-left: -12px;
+            margin-right: -12px;
+            padding-bottom: 8px;
+            >div {
+                padding-left: 12px;
+                padding-right: 12px;
+                margin-bottom: 24px;
+            }
+        }
+        .input-item {
+            height: 100%;
+        }
+    }
+    &-password {
+        width: 50%;
+        .input-item {
+            margin-bottom: 24px;
+        }
+    }
+}

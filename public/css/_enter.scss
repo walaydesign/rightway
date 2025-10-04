@@ -1,0 +1,77 @@
+.enter-form {
+  .input-item {
+    margin-bottom: 20px;
+  }
+  .input-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    label {
+        display: block;
+        a {
+            display: inline-block;
+            text-decoration: underline;
+            color: $primary-600;
+        }
+    }
+    .checkbox {
+      &::after {
+        border-color: #c7c7c7;
+      }
+      &:checked {
+        &::after {
+          border-color: $yellow;
+        }
+      }
+    }
+  }
+  &-login {
+    .btn-forget {
+      text-decoration: underline;
+      color: $primary-900;
+      font-size: 14px;
+      &:hover {
+        color: $yellow;
+      }
+    }
+    .btn {
+      margin-top: 20px;
+    }
+  }
+  &-forget {
+    p {
+      margin-bottom: 20px;
+    }
+  }
+  &-signup {
+    .btn {
+        margin: 24px auto 0;
+    }
+    hr {
+        border: 1px solid #E4E4E4;
+    }
+  }
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 0;
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #afccd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 20px;
+    }
+    &:hover {
+      background-color: $primary-100;
+    }
+  }
+}

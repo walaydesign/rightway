@@ -179,6 +179,14 @@
             padding-right: 8px;
         }
     }
+    @media screen and (max-width: 991px) {
+        .row {
+            margin: 0;
+            >div {
+                padding: 0;
+            }
+        }
+    }
 }
 
 .c-create-project-item {
@@ -217,6 +225,15 @@
         h2 {
             font-weight: 700;
             color: $primary-800;
+        }
+    }
+    @media screen and (max-width: 991px) {
+        border-radius: 20px;
+        &__pic {
+            border-radius: 16px;
+        }
+        h2 {
+            font-size: 16px;
         }
     }
 }

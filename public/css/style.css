@@ -899,6 +899,27 @@ span {
   margin: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .modal-content {
+    padding: 24px;
+  }
+  .modal-title {
+    font-size: 28px;
+  }
+  .modal-body.create-project {
+    padding: 20px 16px;
+  }
+  .modal-footer.create-project {
+    padding: 16px;
+  }
+  .modal-dialog {
+    margin-top: 50px;
+  }
+  .modal-dialog-scrollable .modal-body {
+    height: calc(100vh - 100px - 48px - 75px - 78px);
+  }
+}
+
 .inner-title {
   padding: 12px 0;
 }
@@ -1352,6 +1373,15 @@ span {
   padding-right: 8px;
 }
 
+@media screen and (max-width: 991px) {
+  .create-project .row {
+    margin: 0;
+  }
+  .create-project .row > div {
+    padding: 0;
+  }
+}
+
 .c-create-project-item {
   display: block;
   border-radius: 24px;
@@ -1399,6 +1429,18 @@ span {
 .c-create-project-item.active h2 {
   font-weight: 700;
   color: #065966;
+}
+
+@media screen and (max-width: 991px) {
+  .c-create-project-item {
+    border-radius: 20px;
+  }
+  .c-create-project-item__pic {
+    border-radius: 16px;
+  }
+  .c-create-project-item h2 {
+    font-size: 16px;
+  }
 }
 
 .download-list {

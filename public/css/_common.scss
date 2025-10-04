@@ -25,11 +25,11 @@ body {
   background-color: $primary-50;
   font-family: "Noto Sans TC", sans-serif;
   @media screen and (max-width: 767px) {
-  &.no-header {
-    .main {
+    &.no-header {
+      .main {
         padding-top: 20px;
+      }
     }
-  }    
   }
 }
 
@@ -153,56 +153,56 @@ span {
           }
         }
         &:hover {
-            >a {
-                color: $blue !important;
-            }
+          > a {
+            color: $blue !important;
+          }
         }
         &.has-child {
+          position: relative;
+          // padding-right: 20px;
+          > a {
             position: relative;
-            // padding-right: 20px;
-            >a {
-                position: relative;
-                // padding-right: 24px;
+            // padding-right: 24px;
             &::before {
-                position: absolute;
-                content: "";
-                width: 16px;
-                height: 16px;
-                background-image: url(../img/chevron-down.svg);
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
+              position: absolute;
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-image: url(../img/chevron-down.svg);
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
             }
+          }
+          .header-child-list {
+            position: absolute;
+            min-width: 150px;
+            right: 0;
+            top: 100%;
+            padding-top: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: $transition;
+            ul {
+              background-color: $white;
+              padding: 20px;
+              border-radius: 16px;
+              box-shadow: $shadow-blue;
+              a {
+                font-size: 15px;
+                padding: 4px 0;
+              }
             }
+          }
+          &:hover {
             .header-child-list {
-                position: absolute;
-                min-width: 150px;
-                right: 0;
-                top: 100%;
-                padding-top: 12px;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: $transition;
-                ul {
-                    background-color: $white;
-                    padding: 20px;
-                    border-radius: 16px;
-                    box-shadow: $shadow-blue;
-                    a {
-                        font-size: 15px;
-                        padding: 4px 0;
-                    }
-                }
+              opacity: 1;
+              visibility: visible;
             }
-            &:hover {
-                .header-child-list {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
+          }
         }
         > a {
           padding: 12px 20px;
@@ -261,22 +261,22 @@ span {
   }
   @media screen and (max-width: 575px) {
     &__nav {
-        padding: 0 12px;
-        box-shadow: 0 5px 6px rgba(55, 150, 160, 0.1);
-        >ul {
-            >li {
-                >a {
-                    padding: 12px 16px;
-                    font-size: 14px;
-                }
-            }
+      padding: 0 12px;
+      box-shadow: 0 5px 6px rgba(55, 150, 160, 0.1);
+      > ul {
+        > li {
+          > a {
+            padding: 12px 16px;
+            font-size: 14px;
+          }
         }
+      }
     }
     &.scrolldown {
-        .container {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
   }
 }
@@ -482,11 +482,11 @@ span {
       }
     }
     @media screen and (max-width: 575px) {
-        width: 40px;
-        height: 40px;
-        span {
-            font-size: 20px;
-        }
+      width: 40px;
+      height: 40px;
+      span {
+        font-size: 20px;
+      }
     }
   }
   &-bg-yellow-only-icon {
@@ -515,11 +515,11 @@ span {
       }
     }
     @media screen and (max-width: 575px) {
-        width: 40px;
-        height: 40px;
-        span {
-            font-size: 20px;
-        }
+      width: 40px;
+      height: 40px;
+      span {
+        font-size: 20px;
+      }
     }
   }
   &-bg-yellow-only-text {
@@ -609,13 +609,13 @@ span {
   @media screen and (max-width: 575px) {
     padding: 10px 16px;
     span {
-        font-size: 15px;
+      font-size: 15px;
     }
     p {
-        font-size: 15px;
+      font-size: 15px;
     }
     &-sm {
-        padding: 4px 10px;
+      padding: 4px 10px;
     }
   }
 }
@@ -665,8 +665,8 @@ span {
   @media screen and (max-width: 575px) {
     gap: 10px;
     a {
-        width: 36px;
-        height: 36px;
+      width: 36px;
+      height: 36px;
     }
   }
 }
@@ -740,6 +740,32 @@ span {
     font-weight: 700;
     margin: 0;
   }
+  @media screen and (max-width: 767px) {
+    &-content {
+      padding: 24px;
+    }
+    &-title {
+      font-size: 28px;
+    }
+    &-body {
+      &.create-project {
+        padding: 20px 16px;
+      }
+    }
+    &-footer {
+      &.create-project {
+        padding: 16px;
+      }
+    }
+    &-dialog {
+      margin-top: 50px;
+      &-scrollable {
+        .modal-body {
+          height: calc(100vh - 100px - 48px - 75px - 78px);
+        }
+      }
+    }
+  }
 }
 
 .inner-title {
@@ -807,14 +833,14 @@ span {
 }
 
 .term {
-    color: #4c4c4c;
+  color: #4c4c4c;
   p {
     line-height: 1.8;
     text-align: justify;
   }
   @media screen and (max-width: 767px) {
     p {
-        font-size: 15px;
+      font-size: 15px;
     }
   }
 }
@@ -875,10 +901,10 @@ span {
   @media screen and (max-width: 767px) {
     // margin-top: 30px;
     img {
-        width: 200px;
+      width: 200px;
     }
     p {
-        font-size: 16px;
+      font-size: 16px;
     }
   }
 }

@@ -73,7 +73,7 @@
                 <p>儲存</p>
                 <p class="btn-save__notify">(已於3秒前自動儲存)</p>
               </button>
-              <button class="btn btn-border-primary btn-export">
+              <button class="btn btn-border-primary btn-export" data-bs-toggle="modal" data-bs-target="#modal-export">
                 <span class="icon-export"></span>
                 <p>匯出</p>
               </button>
@@ -260,6 +260,28 @@
         <span class="icon-AI"></span>
         <p>AI輔助</p>
     </button>
+
+    <div
+      class="modal fade"
+      id="modal-export"
+      tabindex="-1"
+      aria-labelledby="modal-exportLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title">預覽</h1>
+            <button type="button" class="btn btn-bg-primary-only-text">
+              <p>確定匯出</p>
+            </button>
+          </div>
+          <div class="modal-body export">
+            <img src="./public/img/export.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer"><p>版權所有©2025 RightWay</p></footer>
 

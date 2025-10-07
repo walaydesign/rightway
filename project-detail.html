@@ -362,6 +362,8 @@
       $(".sidebar--ai .btn-close-sidebar").click(function() {
         $(".sidebar--ai").removeClass("active");
         $(".project-detail__main").removeClass("ai-open");
+        $(".btn-menu").removeClass("active")
+        $(".project-detail__nav").fadeIn(300);
       })
 
       $(".btn-file").click(function() {

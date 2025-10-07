@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RightWay</title>
+    <meta property="og:image" content="./public/img/share.jpg" />
+    <meta property="og:url" content="./public/img/share.jpg" />
+    <meta property="og:image" content="./public/img/share.jpg" />
+    <meta property="og:url" content="./public/img/share.jpg" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="./public/css/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./public/css/aos/aos.css" />
+    <link rel="stylesheet" href="./public/icomoon/style.css" />
+    <link rel="stylesheet" href="./public/css/jquery-ui/jquery-ui.css" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.0-dev.2/quill.snow.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/quill-better-table@1.2.7/dist/quill-better-table.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./public/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="./index.html" class="header__logo"
+          ><img src="./public/img/logo.png" alt=""
+        /></a>
+        <nav class="header__nav">
+          <ul>
+            <li><a href="./download.html">表單下載</a></li>
+            <li class="has-child">
+              <a>會員專區</a>
+              <div class="header-child-list">
+                <ul>
+                  <li><a href="./member-info.html">基本資料</a></li>
+                  <li><a href="./member-password.html">變更密碼</a></li>
+                  <li><a href="./member-term.html">個資使用條款</a></li>
+                  <li><a href="">登出</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="project-detail">
+        <div class="project-detail__main">
+          <div class="project-detail__head">
+            <div class="container">
+              <a href="" class="btn btn-bg-lightblue-only-icon">
+                <span class="icon-chevron-left"></span>
+              </a>
+              <input
+                type="text"
+                value="彰化縣109學年度OO國中特殊教育學生個別化教育計畫"
+              />
+              <button class="btn btn-bg-primary btn-save">
+                <span class="icon-save"></span>
+                <p>儲存</p>
+                <p class="btn-save__notify">(已於3秒前自動儲存)</p>
+              </button>
+              <button class="btn btn-border-primary btn-export">
+                <span class="icon-export"></span>
+                <p>匯出</p>
+              </button>
+            </div>
+          </div>
+          <div class="project-detail__func">
+            <div class="container">
+              <button class="btn btn-bg-primary-only-icon btn-file">
+                <span class="icon-file"></span>
+              </button>
+              <button class="btn btn-bg-primary-only-icon btn-menu">
+                <span class="icon-menu"></span>
+              </button>
+              <div id="toolbar" class="toolbar">
+                <select class="ql-font"></select>
+                <select class="ql-size"></select>
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+                <select class="ql-color"></select>
+                <select class="ql-align"></select>
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+                <button class="ql-list" value="check"></button>
+                <button class="ql-indent" value="-1"></button>
+                <button class="ql-indent" value="+1"></button>
+                <button class="ql-blockquote"></button>
+                <button class="ql-image"></button>
+
+                <button class="ql-insertTable" id="insert-table">
+                  <img src="./public/img/table.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="project-detail__content">
+            <div id="editor" class="editor"></div>
+          </div>
+          <button class="btn btn-top btn-bg-primary-only-icon"><span class="icon-arrow-up"></span></button>
+        </div>
+      </div>
+    </main>
+
+    <nav class="project-detail__nav">
+        <div>
+            <h2><a class="active">主段落名稱</a></h2>
+            <ul>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><a>主段落名稱</a></h2>
+            <ul>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+                <li><a>子段落名稱</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="sidebar sidebar--ai" id="sidebar--ai-chat">
+      <div class="sidebar-head">
+        <button class="btn btn-border-primary btn-history">
+          <span class="icon-history"><span class="path1"></span><span class="path2"></span></span>
+          <p>聊天記錄</p>
+        </button>
+        <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
+          <span class="icon-x"></span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <div class="ai-chat">
+          <h1>我們該從哪裡開始？</h1>
+          <div class="ai-chat__my">
+            <p>請根據這個學生社會技巧能力現況，規劃一學期的學期目標</p>
+            <textarea name="" id=""></textarea>
+            <button class="btn-nobuffer btn-edit">
+              <span class="icon-edit1"></span>
+              <p>編輯</p>
+            </button>
+            <button class="btn-edit-check">確定</button>
+          </div>
+          <div class="ai-chat__reply">
+            <p>
+              1-1-1<br />
+              50% 能夠說出每個人都是獨一無二，以及自己的優缺點。<br />
+              <br />
+              1-2<br />
+              60% 能夠表現出努力改善缺點，並發揮自己優點的態度和行為。<br />
+              <br />
+              2-1、3-1<br />
+              80% 能分辨霸凌行為類型。<br />
+              <br />
+              2-2、3-2<br />
+              80% 能說出並演練出遭遇霸凌的應對方式。<br />
+              <br />
+              2-3、3-3<br />
+              80% 能說出霸凌他人的相關法律刑責。<br />
+              <br />
+              2-4、3-4<br />
+              80% 能分辨好、壞朋友的言行差別。<br />
+            </p>
+            <button class="btn-nobuffer">
+              <span class="icon-reload"></span>
+              <p>重新生成</p>
+            </button>
+          </div>
+        </div>
+        <div class="ai-func">
+            <button class="btn btn-border-primary">
+                <span class="icon-export"></span>
+                <p>上傳檔案</p>
+            </button>
+            <input type="text" placeholder="請輸入...">
+            <button class="btn btn-bg-yellow-only-icon">
+                <span class="icon-send"></span>
+            </button>
+            <button class="btn btn-bg-lightblue-only-icon">
+                <span class="icon-mic"></span>
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar sidebar--ai" id="sidebar--ai-history">
+        <div class="sidebar-head">
+            <div class="sidebar-head__title">
+                <button class="btn btn-border-primary-only-icon btn-sidebar-back">
+                    <span class="icon-chevron-left"></span>
+                </button>
+                <h1>聊天記錄</h1>
+            </div>
+            <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
+          <span class="icon-x"></span>
+        </button>
+        </div>
+         <div class="sidebar-content">
+            <div class="chat-history">
+                <button class="chat-history__item active">
+                    <h2>規劃學生目標</h2>
+                    <p>2025/07/08 13:00</p>
+                </button>
+                <button class="chat-history__item">
+                    <h2>聊天主題聊天主題聊天主題</h2>
+                    <p>2025/07/08 13:00</p>
+                </button>
+                <button class="chat-history__item">
+                    <h2>聊天主題聊天主題聊天主題</h2>
+                    <p>2025/07/08 13:00</p>
+                </button>
+                <button class="chat-history__item">
+                    <h2>聊天主題聊天主題聊天主題</h2>
+                    <p>2025/07/08 13:00</p>
+                </button>
+            </div>
+         </div>
+    </div>
+
+    <div class="popup-mask"></div>
+
+    <div class="sidebar sidebar--catagory">
+      <div class="sidebar-head">
+        <div class="sidebar-head__title"><h1>專案列表</h1></div>
+        <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
+          <span class="icon-x"></span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <div class="sidebar-project-list">
+            <a href="" class="active">彰化縣109學年度OO國中特殊教育學生個別化教育計畫</a>
+            <a href="">專案名稱專案名稱專案名稱</a>
+            <a href="">專案名稱專案名稱專案名稱</a>
+            <a href="">專案名稱專案名稱專案名稱</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-ai">
+        <span class="icon-AI"></span>
+        <p>AI輔助</p>
+    </button>
+
+    <footer class="footer"><p>版權所有©2025 RightWay</p></footer>
+
+    <script src="./public/js/jquery/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/aos/aos.js"></script>
+    <script src="./public/js/swiper/swiper-bundle.min.js"></script>
+    <script src="./public/js/jquery-ui/jquery-ui.js"></script>
+    <!-- <script src="./public/js/quill/quill.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.0-dev.3/quill.min.js"></script>
+    <script src="https://unpkg.com/quill-better-table@1.2.10/dist/quill-better-table.min.js"></script>
+    <script src="./public/js/common.js"></script>
+
+    <script>
+      const toolbarOptions = [
+        [{ font: [] }],
+        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        [{ color: [] }], // dropdown with defaults from theme
+        [{ align: [] }],
+        [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        ["blockquote"],
+        ["image"],
+        // [{ 'table': [] }]
+      ];
+
+      Quill.register(
+        {
+          "modules/better-table": quillBetterTable,
+        },
+        true
+      );
+
+      window.onload = () => {
+        const quill = new Quill("#editor", {
+          theme: "snow",
+          modules: {
+            // toolbar: toolbarOptions,
+            toolbar: "#toolbar",
+            table: false,
+            "better-table": {
+              operationMenu: {
+                items: {
+                  unmergeCells: {
+                    text: "Another unmerge cells name",
+                  },
+                },
+                color: {
+                  colors: ["green", "red", "yellow", "blue", "white"],
+                  text: "Background Colors:",
+                },
+              },
+            },
+          },
+        });
+
+        let tableModule = quill.getModule("better-table");
+        document.body.querySelector("#insert-table").onclick = () => {
+          tableModule.insertTable(3, 3);
+        };
+      };
+
+      function updateDeltaView(quill) {
+        document.body.querySelector("#delta-view").innerHTML = JSON.stringify(
+          quill.getContents()
+        );
+      }
+
+      $(".ai-chat__my .btn-edit").click(function() {
+        let val = $(this).parents(".ai-chat__my").children("p").text();
+        $(this).parents(".ai-chat__my").addClass("edit");
+        $(this).parents(".ai-chat__my").find("textarea").val(val);
+      })
+
+      $(".btn-edit-check").click(function() {
+        let val = $(this).parents(".ai-chat__my").find("textarea").val();
+         $(this).parents(".ai-chat__my").children("p").text(val);
+        $(this).parents(".ai-chat__my").removeClass("edit");
+      })
+
+      $(".chat-history__item").click(function() {
+        $(this).addClass("active").siblings(".chat-history__item").removeClass("active");
+        $(this).parents("#sidebar--ai-history").removeClass("active");
+      })
+
+      $(".btn-history").click(function() {
+        $("#sidebar--ai-history").addClass("active");
+      })
+
+      $(".btn-sidebar-back").click(function() {
+        $(this).parents(".sidebar").removeClass("active");
+      })
+
+      $(".sidebar--catagory .btn-close-sidebar").click(function() {
+        $(this).parents(".sidebar").removeClass("active");
+        $(".popup-mask").fadeOut(300);
+      })
+
+      $(".sidebar--ai .btn-close-sidebar").click(function() {
+        $(".sidebar--ai").removeClass("active");
+        $(".project-detail__main").removeClass("ai-open");
+      })
+
+      $(".btn-file").click(function() {
+        $(".popup-mask").fadeIn(300);
+        $(".sidebar--catagory").addClass("active");
+      })
+
+      $(".btn-ai").click(function() {
+        $(".project-detail__main").addClass("ai-open");
+        $("#sidebar--ai-chat").addClass("active");
+         $(".project-detail__nav").fadeOut(300);
+      })
+
+      $(".project-detail__nav a").click(function() {
+        $(".project-detail__nav a").removeClass("active");
+        $(this).addClass("active");
+      })
+
+      $(".btn-menu").click(function(){
+        $(this).toggleClass("active")
+        $(".project-detail__nav").fadeToggle(300);
+      })
+    </script>
+  </body>
+</html>

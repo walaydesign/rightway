@@ -187,7 +187,7 @@
             </button>
           </div>
         </div>
-        <div class="ai-func">
+        <div class="ai-func ai-func--init">
             <button class="btn btn-border-primary">
                 <span class="icon-export"></span>
                 <p>上傳檔案</p>
@@ -196,9 +196,17 @@
             <button class="btn btn-bg-yellow-only-icon">
                 <span class="icon-send"></span>
             </button>
-            <button class="btn btn-bg-lightblue-only-icon">
+            <button class="btn btn-bg-lightblue-only-icon btn-record">
                 <span class="icon-mic"></span>
             </button>
+        </div>
+        <div class="ai-func ai-func--record">
+            <div class="ai-func__inner">
+            <canvas id="visualizer"></canvas>
+            <button class="btn btn-bg-lightblue-only-icon btn-stop"><span class="icon-x"></span></button>
+            <button class="btn btn-bg-yellow-only-icon btn-send"><span class="icon-send"></span></button>
+
+            </div>
         </div>
       </div>
     </div>
@@ -296,19 +304,6 @@
     <script src="./public/js/common.js"></script>
 
     <script>
-      const toolbarOptions = [
-        [{ font: [] }],
-        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-        ["bold", "italic", "underline", "strike"], // toggled buttons
-        [{ color: [] }], // dropdown with defaults from theme
-        [{ align: [] }],
-        [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-        ["blockquote"],
-        ["image"],
-        // [{ 'table': [] }]
-      ];
-
       Quill.register(
         {
           "modules/better-table": quillBetterTable,
@@ -408,6 +403,72 @@
         $(this).toggleClass("active")
         $(".project-detail__nav").fadeToggle(300);
       })
+    </script>
+
+    <script>
+      let audioCtx, analyser, source, dataArray, animationId, mediaStream;
+
+      const canvas = document.getElementById("visualizer");
+      const ctx = canvas.getContext("2d");
+
+      async function startRecording() {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+        });
+        audioCtx = new AudioContext();
+        analyser = audioCtx.createAnalyser();
+        source = audioCtx.createMediaStreamSource(mediaStream);
+        source.connect(analyser);
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        dataArray = new Uint8Array(bufferLength);
+
+        function draw() {
+          animationId = requestAnimationFrame(draw);
+          analyser.getByteFrequencyData(dataArray);
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          const barWidth = 2;
+          const barGap = 1;
+          let x = 0;
+
+          for (let i = 0; i < bufferLength; i++) {
+            const barHeight = dataArray[i] / 2;
+
+            ctx.fillStyle = "#A3CBCB";
+
+            ctx.fillRect(x, canvas.height / 2 - barHeight, barWidth, barHeight);
+
+            ctx.fillRect(x, canvas.height / 2, barWidth, barHeight);
+
+            x += barWidth + barGap;
+          }
+        }
+        draw();
+      }
+
+      function stopRecording() {
+        cancelAnimationFrame(animationId);
+        mediaStream.getTracks().forEach((track) => track.stop());
+        audioCtx.close();
+      }
+
+      document.getElementById("btn-record").onclick = startRecording;
+      document.getElementById("btn-stop").onclick = stopRecording;
+    </script>
+
+    <script>
+        $(".btn-record").click(function() {
+            $(this).parents(".ai-func--init").hide();
+            $(".ai-func--record").show();
+        })
+
+        $(".btn-send").click(function() {
+            $(this).parents(".ai-func--record").hide();
+            $(".ai-func--init").show().css("style","flex");
+        })
     </script>
   </body>
 </html>

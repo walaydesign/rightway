@@ -2045,6 +2045,31 @@ span {
   color: #afccd1;
 }
 
+.ai-func--record {
+  display: none;
+}
+
+.ai-func--record .ai-func__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.ai-func--record .ai-func__inner #visualizer {
+  width: calc(100% - 84px);
+  height: 25px;
+}
+
+.ai-func--record .ai-func__inner .btn {
+  width: 36px;
+  height: 36px;
+}
+
 .chat-history__item {
   margin-bottom: 16px;
   border-radius: 16px;

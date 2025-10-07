@@ -523,6 +523,23 @@
         color: $primary-300;
       }
     }
+    &--record {
+        display: none;
+        .ai-func__inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 12px;
+    #visualizer {
+        width: calc(100% - 84px);
+        height: 25px;
+    }
+    .btn {
+        width: 36px;
+        height: 36px;
+    }
+        }
+    }
   }
 }
 

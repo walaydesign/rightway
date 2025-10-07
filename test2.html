@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WaveSurfer Live Mic</title>
+    <style>
+      #waveform {
+        width: 600px;
+        height: 100px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="visualizer" width="600" height="25"></canvas>
+    <button id="startBtn">開始錄音</button>
+    <button id="stopBtn">停止錄音</button>
+
+    <script>
+      let audioCtx, analyser, source, dataArray, animationId, mediaStream;
+
+      const canvas = document.getElementById("visualizer");
+      const ctx = canvas.getContext("2d");
+
+      async function startRecording() {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+        });
+        audioCtx = new AudioContext();
+        analyser = audioCtx.createAnalyser();
+        source = audioCtx.createMediaStreamSource(mediaStream);
+        source.connect(analyser);
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        dataArray = new Uint8Array(bufferLength);
+
+        function draw() {
+          animationId = requestAnimationFrame(draw);
+          analyser.getByteFrequencyData(dataArray);
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          const barWidth = 2;
+          const barGap = 1;
+          let x = 0;
+
+          for (let i = 0; i < bufferLength; i++) {
+            const barHeight = dataArray[i] / 2;
+
+            ctx.fillStyle = "#A3CBCB";
+
+            // 🎯 上半部（往下長）
+            ctx.fillRect(x, canvas.height / 2 - barHeight, barWidth, barHeight);
+
+            // 🎯 下半部（往上長）
+            ctx.fillRect(x, canvas.height / 2, barWidth, barHeight);
+
+            x += barWidth + barGap;
+          }
+        }
+        draw();
+      }
+
+      function stopRecording() {
+        cancelAnimationFrame(animationId);
+        mediaStream.getTracks().forEach((track) => track.stop());
+        audioCtx.close();
+      }
+
+      document.getElementById("startBtn").onclick = startRecording;
+      document.getElementById("stopBtn").onclick = stopRecording;
+    </script>
+  </body>
+</html>

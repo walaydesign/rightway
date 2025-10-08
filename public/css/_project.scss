@@ -130,13 +130,17 @@
       .btn-menu {
         display: none;
       }
+      .btn-save,
+      .btn-export {
+        display: none;
+      }
     }
     &__content {
       padding-top: 185px;
       padding-bottom: 40px;
       .editor {
-        max-width: 680px;
-        width: 100%;
+        max-width: 720px;
+        width: calc(100% - 40px);
         border-radius: 24px;
         background-color: $white;
         box-shadow: $shadow-blue;
@@ -245,9 +249,66 @@
       }
     }
     .btn-menu {
-        &.active {
-            background-color: $yellow;
+      &.active {
+        background-color: $yellow;
+      }
+    }
+  }
+  @media screen and (max-width: 1350px) {
+    &-detail {
+      &__nav {
+        display: none;
+        top: 230px;
+        z-index: 10;
+      }
+      &__head {
+        padding-bottom: 16px;
+        .btn-save,
+        .btn-export {
+          display: none;
         }
+        input {
+          width: calc(100% - 68px);
+        }
+      }
+      &__func {
+        padding-top: 0;
+        padding-bottom: 30px;
+        background-color: $primary-50;
+        top: 151px;
+        .container {
+          justify-content: space-between;
+        }
+        .btn-menu {
+          display: flex;
+        }
+        .btn-save,
+        .btn-export {
+          display: flex;
+        }
+        .toolbar {
+          width: 100%;
+          border-radius: 0;
+          // flex-wrap: nowrap;
+          right: 0;
+          bottom: 0;
+          top: inherit;
+          position: fixed;
+          padding: 8px 12px;
+          button {
+            width: 18px;
+            height: 18px;
+          }
+          svg {
+            width: 18px !important;
+            height: 18px !important;
+          }
+        }
+      }
+      &__content {
+        padding-top: 135px;
+        padding-bottom: 80px;
+      }
     }
   }
   @media screen and (max-width: 991px) {
@@ -524,21 +585,51 @@
       }
     }
     &--record {
-        display: none;
-        .ai-func__inner {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            gap: 12px;
-    #visualizer {
-        width: calc(100% - 84px);
-        height: 25px;
-    }
-    .btn {
-        width: 36px;
-        height: 36px;
-    }
+      display: none;
+      .ai-func__inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+        #visualizer {
+          width: calc(100% - 84px);
+          height: 25px;
         }
+        .btn {
+          width: 36px;
+          height: 36px;
+        }
+      }
+      // &.show {
+      //   opacity: 1;
+      //   visibility: visible;
+      // }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    &-chat {
+      h1 {
+        padding-bottom: 20px;
+        font-size: 20px;
+      }
+      &__reply,
+      &__my {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+    }
+    &-func {
+      .btn-upload {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        p {
+          display: none;
+        }
+      }
+      input {
+        width: calc(100% - 156px);
+      }
     }
   }
 }

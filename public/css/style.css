@@ -867,12 +867,12 @@ span {
 }
 
 .btn-nobuffer span::before {
-  color: #528C92;
+  color: #528c92;
 }
 
 .btn-nobuffer p {
   font-size: 14px;
-  color: #528C92;
+  color: #528c92;
   margin: 0;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -1295,6 +1295,7 @@ span {
 
 .sidebar--ai .sidebar-content {
   overflow: visible;
+  position: relative;
 }
 
 .sidebar--ai .ai-chat {
@@ -1349,6 +1350,12 @@ span {
   padding: 32px 0 0;
   height: calc(100vh - 105px);
   overflow-y: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .sidebar {
+    padding: 20px;
+  }
 }
 
 .project-list {
@@ -1532,14 +1539,19 @@ span {
   display: none;
 }
 
+.project-detail__func .btn-save,
+.project-detail__func .btn-export {
+  display: none;
+}
+
 .project-detail__content {
   padding-top: 185px;
   padding-bottom: 40px;
 }
 
 .project-detail__content .editor {
-  max-width: 680px;
-  width: 100%;
+  max-width: 720px;
+  width: calc(100% - 40px);
   border-radius: 24px;
   background-color: #ffffff;
   -webkit-box-shadow: 0 10px 12px rgba(55, 150, 160, 0.1);
@@ -1668,6 +1680,67 @@ span {
 
 .project-detail .btn-menu.active {
   background-color: #f8ae00;
+}
+
+@media screen and (max-width: 1350px) {
+  .project-detail__nav {
+    display: none;
+    top: 230px;
+    z-index: 10;
+  }
+  .project-detail__head {
+    padding-bottom: 16px;
+  }
+  .project-detail__head .btn-save,
+  .project-detail__head .btn-export {
+    display: none;
+  }
+  .project-detail__head input {
+    width: calc(100% - 68px);
+  }
+  .project-detail__func {
+    padding-top: 0;
+    padding-bottom: 30px;
+    background-color: #f4fbfb;
+    top: 151px;
+  }
+  .project-detail__func .container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .project-detail__func .btn-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .project-detail__func .btn-save,
+  .project-detail__func .btn-export {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .project-detail__func .toolbar {
+    width: 100%;
+    border-radius: 0;
+    right: 0;
+    bottom: 0;
+    top: inherit;
+    position: fixed;
+    padding: 8px 12px;
+  }
+  .project-detail__func .toolbar button {
+    width: 18px;
+    height: 18px;
+  }
+  .project-detail__func .toolbar svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .project-detail__content {
+    padding-top: 135px;
+    padding-bottom: 80px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -2068,6 +2141,28 @@ span {
 .ai-func--record .ai-func__inner .btn {
   width: 36px;
   height: 36px;
+}
+
+@media screen and (max-width: 767px) {
+  .ai-chat h1 {
+    padding-bottom: 20px;
+    font-size: 20px;
+  }
+  .ai-chat__reply, .ai-chat__my {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .ai-func .btn-upload {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+  .ai-func .btn-upload p {
+    display: none;
+  }
+  .ai-func input {
+    width: calc(100% - 156px);
+  }
 }
 
 .chat-history__item {

@@ -81,12 +81,15 @@
           </div>
           <div class="project-detail__func">
             <div class="container">
+              <div class="d-flex align-item-center gap-3">
               <button class="btn btn-bg-primary-only-icon btn-file">
                 <span class="icon-file"></span>
               </button>
               <button class="btn btn-bg-primary-only-icon btn-menu">
                 <span class="icon-menu"></span>
               </button>
+
+              </div>
               <div id="toolbar" class="toolbar">
                 <select class="ql-font"></select>
                 <select class="ql-size"></select>
@@ -107,6 +110,18 @@
                 <button class="ql-insertTable" id="insert-table">
                   <img src="./public/img/table.svg" alt="" />
                 </button>
+              </div>
+              <div class="d-flex align-item-center gap-3">
+
+              <button class="btn btn-bg-primary btn-save">
+                <span class="icon-save"></span>
+                <p>儲存</p>
+                <p class="btn-save__notify">(已於3秒前自動儲存)</p>
+              </button>
+              <button class="btn btn-border-primary btn-export" data-bs-toggle="modal" data-bs-target="#modal-export">
+                <span class="icon-export"></span>
+                <p>匯出</p>
+              </button>
               </div>
             </div>
           </div>
@@ -188,7 +203,7 @@
           </div>
         </div>
         <div class="ai-func ai-func--init">
-            <button class="btn btn-border-primary">
+            <button class="btn btn-border-primary btn-upload">
                 <span class="icon-export"></span>
                 <p>上傳檔案</p>
             </button>
@@ -196,14 +211,14 @@
             <button class="btn btn-bg-yellow-only-icon">
                 <span class="icon-send"></span>
             </button>
-            <button class="btn btn-bg-lightblue-only-icon btn-record">
+            <button class="btn btn-bg-lightblue-only-icon btn-record" id="btn-record">
                 <span class="icon-mic"></span>
             </button>
         </div>
         <div class="ai-func ai-func--record">
             <div class="ai-func__inner">
             <canvas id="visualizer"></canvas>
-            <button class="btn btn-bg-lightblue-only-icon btn-stop"><span class="icon-x"></span></button>
+            <button class="btn btn-bg-lightblue-only-icon btn-stop" id="btn-stop"><span class="icon-x"></span></button>
             <button class="btn btn-bg-yellow-only-icon btn-send"><span class="icon-send"></span></button>
 
             </div>
@@ -378,9 +393,12 @@
 
       $(".sidebar--ai .btn-close-sidebar").click(function() {
         $(".sidebar--ai").removeClass("active");
-        $(".project-detail__main").removeClass("ai-open");
         $(".btn-menu").removeClass("active")
+        if($(window).width() > 1350) {
+        $(".project-detail__main").removeClass("ai-open");
         $(".project-detail__nav").fadeIn(300);
+          
+        }
       })
 
       $(".btn-file").click(function() {
@@ -389,9 +407,12 @@
       })
 
       $(".btn-ai").click(function() {
-        $(".project-detail__main").addClass("ai-open");
         $("#sidebar--ai-chat").addClass("active");
+        if($(window).width() > 1350) {
+        $(".project-detail__main").addClass("ai-open");
          $(".project-detail__nav").fadeOut(300);
+
+        }
       })
 
       $(".project-detail__nav a").click(function() {
@@ -461,11 +482,13 @@
 
     <script>
         $(".btn-record").click(function() {
-            $(this).parents(".ai-func--init").hide();
+            // $(".ai-func--record").addClass("show");
             $(".ai-func--record").show();
+             $(".ai-func--init").hide();
         })
 
         $(".btn-send").click(function() {
+          // $(".ai-func--record").removeClass("show");
             $(this).parents(".ai-func--record").hide();
             $(".ai-func--init").show().css("style","flex");
         })

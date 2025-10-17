@@ -310,6 +310,10 @@ span {
   min-height: calc(100vh - 45px);
 }
 
+.main--project-inner {
+  padding-top: 0;
+}
+
 .select {
   padding: 0 44px 0 20px;
   background-color: #eaf3f5;
@@ -778,6 +782,23 @@ span {
   color: #ffffff;
 }
 
+.btn-border-primary-only-text {
+  padding: 12px 28px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  color: #3796a0;
+  border-color: #3796a0;
+  border-radius: 100px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.btn-border-primary-only-text:hover {
+  background-color: #3796a0;
+  color: #ffffff;
+}
+
 .btn-bg-primary-big {
   width: 250px;
   padding: 12px;
@@ -995,14 +1016,18 @@ span {
   max-width: 920px;
 }
 
+.modal-dialog-scrollable {
+  margin-top: 50px;
+}
+
 .modal-dialog-scrollable .modal-body {
-  height: calc(100vh - 200px - 80px - 84px - 80px);
+  height: calc(100vh - 48px - 64px - 80px - 20px);
 }
 
 .modal-content {
   border: 0;
   border-radius: 24px;
-  padding: 40px;
+  padding: 24px 40px;
 }
 
 .modal-body {
@@ -1015,7 +1040,7 @@ span {
 }
 
 .modal-body.create-project {
-  padding: 24px 32px 32px;
+  padding: 16px 32px;
   border-radius: 24px 24px 0 0;
   background-color: #f4fbfb;
 }
@@ -1026,6 +1051,7 @@ span {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0;
+  gap: 20px;
 }
 
 .modal-footer button {
@@ -1048,12 +1074,12 @@ span {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 0 30px;
+  padding: 0 0 16px;
   border: 0;
 }
 
 .modal-title {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
   margin: 0;
 }
@@ -1221,7 +1247,7 @@ span {
 
 .enter-container h1 {
   text-align: center;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   padding-bottom: 16px;
   margin-bottom: 16px;
@@ -1358,6 +1384,10 @@ span {
   }
 }
 
+.ui-datepicker-title {
+  white-space: normal;
+}
+
 .project-list {
   padding-top: 20px;
   max-width: 1000px;
@@ -1456,12 +1486,13 @@ span {
 }
 
 .project-detail__head {
+  padding-top: 16px;
   padding-bottom: 32px;
   background-color: #f4fbfb;
   width: 100%;
   position: fixed;
   left: 0;
-  top: 95px;
+  top: 0;
   z-index: 5;
 }
 
@@ -1477,7 +1508,7 @@ span {
   background-color: #f4fbfb;
   position: fixed;
   left: 0;
-  top: 175px;
+  top: 96px;
   width: 100%;
   z-index: 5;
 }
@@ -1539,8 +1570,7 @@ span {
   display: none;
 }
 
-.project-detail__func .btn-save,
-.project-detail__func .btn-export {
+.project-detail__func-btn {
   display: none;
 }
 
@@ -1605,7 +1635,7 @@ span {
   -webkit-box-shadow: 0 10px 12px rgba(55, 150, 160, 0.1);
           box-shadow: 0 10px 12px rgba(55, 150, 160, 0.1);
   position: fixed;
-  top: 280px;
+  top: 188px;
   left: 20px;
   width: 280px;
 }
@@ -1683,13 +1713,32 @@ span {
 }
 
 @media screen and (max-width: 1350px) {
+  .project-detail__content .editor {
+    max-width: inherit;
+    width: calc(100vw - (100vw - 1140px) / 2 - 280px - 60px);
+    margin-right: calc((100vw - 1140px) / 2 + 20px);
+  }
+  .project-detail__func .toolbar {
+    padding: 8px 20px;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .project-detail__content .editor {
+    width: calc(100vw - 280px - 60px);
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .project-detail__nav {
     display: none;
-    top: 230px;
+    top: 170px;
     z-index: 10;
   }
   .project-detail__head {
-    padding-bottom: 16px;
+    padding-bottom: 12px;
+    padding-top: 12px;
   }
   .project-detail__head .btn-save,
   .project-detail__head .btn-export {
@@ -1702,7 +1751,7 @@ span {
     padding-top: 0;
     padding-bottom: 30px;
     background-color: #f4fbfb;
-    top: 151px;
+    top: 72px;
   }
   .project-detail__func .container {
     -webkit-box-pack: justify;
@@ -1714,8 +1763,7 @@ span {
     display: -ms-flexbox;
     display: flex;
   }
-  .project-detail__func .btn-save,
-  .project-detail__func .btn-export {
+  .project-detail__func-btn {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1737,8 +1785,12 @@ span {
     width: 18px !important;
     height: 18px !important;
   }
+  .project-detail__func .toolbar .ql-picker.ql-expanded .ql-picker-options {
+    top: inherit;
+    bottom: 100%;
+  }
   .project-detail__content {
-    padding-top: 135px;
+    padding-top: 170px;
     padding-bottom: 80px;
   }
 }
@@ -1805,6 +1857,11 @@ span {
     position: absolute;
     right: 20px;
     bottom: 20px;
+  }
+  .project-detail__content .editor {
+    max-width: 720px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
   }
 }
 
@@ -2093,7 +2150,7 @@ span {
   background-color: #ffffff;
 }
 
-.ai-func input {
+.ai-func > input {
   width: calc(100% - 130px - 96px - 36px);
   border-radius: 100px;
   background-color: #eaf3f5;
@@ -2102,19 +2159,19 @@ span {
   padding: 0 16px;
 }
 
-.ai-func input::-webkit-input-placeholder {
+.ai-func > input::-webkit-input-placeholder {
   color: #afccd1;
 }
 
-.ai-func input:-ms-input-placeholder {
+.ai-func > input:-ms-input-placeholder {
   color: #afccd1;
 }
 
-.ai-func input::-ms-input-placeholder {
+.ai-func > input::-ms-input-placeholder {
   color: #afccd1;
 }
 
-.ai-func input::placeholder {
+.ai-func > input::placeholder {
   color: #afccd1;
 }
 
@@ -2141,6 +2198,18 @@ span {
 .ai-func--record .ai-func__inner .btn {
   width: 36px;
   height: 36px;
+}
+
+.ai-func .btn-upload {
+  position: relative;
+}
+
+.ai-func .btn-upload input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 @media screen and (max-width: 767px) {

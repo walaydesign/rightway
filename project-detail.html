@@ -32,31 +32,7 @@
     <link rel="stylesheet" href="./public/css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <a href="./index.html" class="header__logo"
-          ><img src="./public/img/logo.png" alt=""
-        /></a>
-        <nav class="header__nav">
-          <ul>
-            <li><a href="./download.html">表單下載</a></li>
-            <li class="has-child">
-              <a>會員專區</a>
-              <div class="header-child-list">
-                <ul>
-                  <li><a href="./member-info.html">基本資料</a></li>
-                  <li><a href="./member-password.html">變更密碼</a></li>
-                  <li><a href="./member-term.html">個資使用條款</a></li>
-                  <li><a href="">登出</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main class="main">
+    <main class="main main--project-inner">
       <div class="project-detail">
         <div class="project-detail__main">
           <div class="project-detail__head">
@@ -73,7 +49,11 @@
                 <p>儲存</p>
                 <p class="btn-save__notify">(已於3秒前自動儲存)</p>
               </button>
-              <button class="btn btn-border-primary btn-export" data-bs-toggle="modal" data-bs-target="#modal-export">
+              <button
+                class="btn btn-border-primary btn-export"
+                data-bs-toggle="modal"
+                data-bs-target="#modal-export"
+              >
                 <span class="icon-export"></span>
                 <p>匯出</p>
               </button>
@@ -82,13 +62,12 @@
           <div class="project-detail__func">
             <div class="container">
               <div class="d-flex align-item-center gap-3">
-              <button class="btn btn-bg-primary-only-icon btn-file">
-                <span class="icon-file"></span>
-              </button>
-              <button class="btn btn-bg-primary-only-icon btn-menu">
-                <span class="icon-menu"></span>
-              </button>
-
+                <button class="btn btn-bg-primary-only-icon btn-file">
+                  <span class="icon-file"></span>
+                </button>
+                <button class="btn btn-bg-primary-only-icon btn-menu">
+                  <span class="icon-menu"></span>
+                </button>
               </div>
               <div id="toolbar" class="toolbar">
                 <select class="ql-font"></select>
@@ -111,53 +90,60 @@
                   <img src="./public/img/table.svg" alt="" />
                 </button>
               </div>
-              <div class="d-flex align-item-center gap-3">
-
-              <button class="btn btn-bg-primary btn-save">
-                <span class="icon-save"></span>
-                <p>儲存</p>
-                <p class="btn-save__notify">(已於3秒前自動儲存)</p>
-              </button>
-              <button class="btn btn-border-primary btn-export" data-bs-toggle="modal" data-bs-target="#modal-export">
-                <span class="icon-export"></span>
-                <p>匯出</p>
-              </button>
+              <div class="project-detail__func-btn align-item-center gap-3">
+                <button class="btn btn-bg-primary btn-save">
+                  <span class="icon-save"></span>
+                  <p>儲存</p>
+                  <p class="btn-save__notify">(已於3秒前自動儲存)</p>
+                </button>
+                <button
+                  class="btn btn-border-primary btn-export"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal-export"
+                >
+                  <span class="icon-export"></span>
+                  <p>匯出</p>
+                </button>
               </div>
             </div>
           </div>
           <div class="project-detail__content">
             <div id="editor" class="editor"></div>
           </div>
-          <button class="btn btn-top btn-bg-primary-only-icon"><span class="icon-arrow-up"></span></button>
+          <button class="btn btn-top btn-bg-primary-only-icon">
+            <span class="icon-arrow-up"></span>
+          </button>
         </div>
       </div>
     </main>
 
     <nav class="project-detail__nav">
-        <div>
-            <h2><a class="active">主段落名稱</a></h2>
-            <ul>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2><a>主段落名稱</a></h2>
-            <ul>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-                <li><a>子段落名稱</a></li>
-            </ul>
-        </div>
+      <div>
+        <h2><a class="active">主段落名稱</a></h2>
+        <ul>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2><a>主段落名稱</a></h2>
+        <ul>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+          <li><a>子段落名稱</a></li>
+        </ul>
+      </div>
     </nav>
 
     <div class="sidebar sidebar--ai" id="sidebar--ai-chat">
       <div class="sidebar-head">
         <button class="btn btn-border-primary btn-history">
-          <span class="icon-history"><span class="path1"></span><span class="path2"></span></span>
+          <span class="icon-history"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
           <p>聊天記錄</p>
         </button>
         <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
@@ -203,61 +189,71 @@
           </div>
         </div>
         <div class="ai-func ai-func--init">
-            <button class="btn btn-border-primary btn-upload">
-                <span class="icon-export"></span>
-                <p>上傳檔案</p>
-            </button>
-            <input type="text" placeholder="請輸入...">
-            <button class="btn btn-bg-yellow-only-icon">
-                <span class="icon-send"></span>
-            </button>
-            <button class="btn btn-bg-lightblue-only-icon btn-record" id="btn-record">
-                <span class="icon-mic"></span>
-            </button>
+          <button class="btn btn-border-primary btn-upload">
+            <span class="icon-export"></span>
+            <p>上傳檔案</p>
+            <input type="file">
+          </button>
+          <input type="text" placeholder="請輸入..." />
+          <button class="btn btn-bg-yellow-only-icon">
+            <span class="icon-send"></span>
+          </button>
+          <button
+            class="btn btn-bg-lightblue-only-icon btn-record"
+            id="btn-record"
+          >
+            <span class="icon-mic"></span>
+          </button>
         </div>
         <div class="ai-func ai-func--record">
-            <div class="ai-func__inner">
+          <div class="ai-func__inner">
             <canvas id="visualizer"></canvas>
-            <button class="btn btn-bg-lightblue-only-icon btn-stop" id="btn-stop"><span class="icon-x"></span></button>
-            <button class="btn btn-bg-yellow-only-icon btn-send"><span class="icon-send"></span></button>
-
-            </div>
+            <button
+              class="btn btn-bg-lightblue-only-icon btn-stop"
+              id="btn-stop"
+            >
+              <span class="icon-x"></span>
+            </button>
+            <button class="btn btn-bg-yellow-only-icon btn-send">
+              <span class="icon-send"></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="sidebar sidebar--ai" id="sidebar--ai-history">
-        <div class="sidebar-head">
-            <div class="sidebar-head__title">
-                <button class="btn btn-border-primary-only-icon btn-sidebar-back">
-                    <span class="icon-chevron-left"></span>
-                </button>
-                <h1>聊天記錄</h1>
-            </div>
-            <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
+      <div class="sidebar-head">
+        <div class="sidebar-head__title">
+          <button class="btn btn-border-primary-only-icon btn-sidebar-back">
+            <span class="icon-chevron-left"></span>
+          </button>
+          <h1>聊天記錄</h1>
+        </div>
+        <button class="btn btn-bg-lightblue-only-icon btn-close-sidebar">
           <span class="icon-x"></span>
         </button>
+      </div>
+      <div class="sidebar-content">
+        <div class="chat-history">
+          <button class="chat-history__item active">
+            <h2>規劃學生目標</h2>
+            <p>2025/07/08 13:00</p>
+          </button>
+          <button class="chat-history__item">
+            <h2>聊天主題聊天主題聊天主題</h2>
+            <p>2025/07/08 13:00</p>
+          </button>
+          <button class="chat-history__item">
+            <h2>聊天主題聊天主題聊天主題</h2>
+            <p>2025/07/08 13:00</p>
+          </button>
+          <button class="chat-history__item">
+            <h2>聊天主題聊天主題聊天主題</h2>
+            <p>2025/07/08 13:00</p>
+          </button>
         </div>
-         <div class="sidebar-content">
-            <div class="chat-history">
-                <button class="chat-history__item active">
-                    <h2>規劃學生目標</h2>
-                    <p>2025/07/08 13:00</p>
-                </button>
-                <button class="chat-history__item">
-                    <h2>聊天主題聊天主題聊天主題</h2>
-                    <p>2025/07/08 13:00</p>
-                </button>
-                <button class="chat-history__item">
-                    <h2>聊天主題聊天主題聊天主題</h2>
-                    <p>2025/07/08 13:00</p>
-                </button>
-                <button class="chat-history__item">
-                    <h2>聊天主題聊天主題聊天主題</h2>
-                    <p>2025/07/08 13:00</p>
-                </button>
-            </div>
-         </div>
+      </div>
     </div>
 
     <div class="popup-mask"></div>
@@ -271,17 +267,19 @@
       </div>
       <div class="sidebar-content">
         <div class="sidebar-project-list">
-            <a href="" class="active">彰化縣109學年度OO國中特殊教育學生個別化教育計畫</a>
-            <a href="">專案名稱專案名稱專案名稱</a>
-            <a href="">專案名稱專案名稱專案名稱</a>
-            <a href="">專案名稱專案名稱專案名稱</a>
+          <a href="" class="active"
+            >彰化縣109學年度OO國中特殊教育學生個別化教育計畫</a
+          >
+          <a href="">專案名稱專案名稱專案名稱</a>
+          <a href="">專案名稱專案名稱專案名稱</a>
+          <a href="">專案名稱專案名稱專案名稱</a>
         </div>
       </div>
     </div>
 
     <button class="btn-ai">
-        <span class="icon-AI"></span>
-        <p>AI輔助</p>
+      <span class="icon-AI"></span>
+      <p>AI輔助</p>
     </button>
 
     <div
@@ -300,7 +298,7 @@
             </button>
           </div>
           <div class="modal-body export">
-            <img src="./public/img/export.png" alt="">
+            <img src="./public/img/export.png" alt="" />
           </div>
         </div>
       </div>
@@ -361,69 +359,70 @@
         );
       }
 
-      $(".ai-chat__my .btn-edit").click(function() {
+      $(".ai-chat__my .btn-edit").click(function () {
         let val = $(this).parents(".ai-chat__my").children("p").text();
         $(this).parents(".ai-chat__my").addClass("edit");
         $(this).parents(".ai-chat__my").find("textarea").val(val);
-      })
+      });
 
-      $(".btn-edit-check").click(function() {
+      $(".btn-edit-check").click(function () {
         let val = $(this).parents(".ai-chat__my").find("textarea").val();
-         $(this).parents(".ai-chat__my").children("p").text(val);
+        $(this).parents(".ai-chat__my").children("p").text(val);
         $(this).parents(".ai-chat__my").removeClass("edit");
-      })
+      });
 
-      $(".chat-history__item").click(function() {
-        $(this).addClass("active").siblings(".chat-history__item").removeClass("active");
+      $(".chat-history__item").click(function () {
+        $(this)
+          .addClass("active")
+          .siblings(".chat-history__item")
+          .removeClass("active");
         $(this).parents("#sidebar--ai-history").removeClass("active");
-      })
+      });
 
-      $(".btn-history").click(function() {
+      $(".btn-history").click(function () {
         $("#sidebar--ai-history").addClass("active");
-      })
+      });
 
-      $(".btn-sidebar-back").click(function() {
+      $(".btn-sidebar-back").click(function () {
         $(this).parents(".sidebar").removeClass("active");
-      })
+      });
 
-      $(".sidebar--catagory .btn-close-sidebar").click(function() {
+      $(".sidebar--catagory .btn-close-sidebar").click(function () {
         $(this).parents(".sidebar").removeClass("active");
         $(".popup-mask").fadeOut(300);
-      })
+      });
 
-      $(".sidebar--ai .btn-close-sidebar").click(function() {
+      $(".sidebar--ai .btn-close-sidebar").click(function () {
         $(".sidebar--ai").removeClass("active");
-        $(".btn-menu").removeClass("active")
-        if($(window).width() > 1350) {
-        $(".project-detail__main").removeClass("ai-open");
-        $(".project-detail__nav").fadeIn(300);
-          
+        $(".btn-menu").removeClass("active");
+        if ($(window).width() > 1350) {
+          $(".project-detail__main").removeClass("ai-open");
+          $(".project-detail__nav").fadeIn(300);
         }
-      })
+      });
 
-      $(".btn-file").click(function() {
+      $(".btn-file").click(function () {
         $(".popup-mask").fadeIn(300);
         $(".sidebar--catagory").addClass("active");
-      })
+      });
 
-      $(".btn-ai").click(function() {
+      $(".btn-ai").click(function () {
         $("#sidebar--ai-chat").addClass("active");
-        if($(window).width() > 1350) {
-        $(".project-detail__main").addClass("ai-open");
-         $(".project-detail__nav").fadeOut(300);
-
+        if ($(window).width() > 1350) {
+          $(".project-detail__main").addClass("ai-open");
+          $(".project-detail__nav").fadeOut(300);
         }
-      })
+      });
 
-      $(".project-detail__nav a").click(function() {
+      $(".project-detail__nav a").click(function () {
         $(".project-detail__nav a").removeClass("active");
         $(this).addClass("active");
-      })
+      });
 
-      $(".btn-menu").click(function(){
-        $(this).toggleClass("active")
+      $(".btn-menu").click(function () {
+        $(this).toggleClass("active");
         $(".project-detail__nav").fadeToggle(300);
-      })
+      });
     </script>
 
     <script>
@@ -481,17 +480,17 @@
     </script>
 
     <script>
-        $(".btn-record").click(function() {
-            // $(".ai-func--record").addClass("show");
-            $(".ai-func--record").show();
-             $(".ai-func--init").hide();
-        })
+      $(".btn-record").click(function () {
+        // $(".ai-func--record").addClass("show");
+        $(".ai-func--record").show();
+        $(".ai-func--init").hide();
+      });
 
-        $(".btn-send").click(function() {
-          // $(".ai-func--record").removeClass("show");
-            $(this).parents(".ai-func--record").hide();
-            $(".ai-func--init").show().css("style","flex");
-        })
+      $(".btn-send").click(function () {
+        // $(".ai-func--record").removeClass("show");
+        $(this).parents(".ai-func--record").hide();
+        $(".ai-func--init").show().css("style", "flex");
+      });
     </script>
   </body>
 </html>

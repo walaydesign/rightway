@@ -88,6 +88,20 @@
 
                 <button class="ql-insertTable" id="insert-table">
                   <img src="./public/img/table.svg" alt="" />
+                  <div class="insert-table__form">
+                    <div class="insert-table-input">
+                      <label for="">欄數</label>
+                      <input type="number" class="table-col">
+                    </div>
+                    <div class="insert-table-input">
+                      <label for="">列數</label>
+                      <input type="number" class="table-row">
+                    </div>
+                    <div class="insert-table-bottom">
+                      <a class="btn-border-primary-only-text">取消</a>
+                      <a class="btn-bg-primary-only-text insert-table-add">確定</a>
+                    </div>
+                  </div>
                 </button>
               </div>
               <div class="project-detail__func-btn align-item-center gap-3">
@@ -311,7 +325,6 @@
     <script src="./public/js/aos/aos.js"></script>
     <script src="./public/js/swiper/swiper-bundle.min.js"></script>
     <script src="./public/js/jquery-ui/jquery-ui.js"></script>
-    <!-- <script src="./public/js/quill/quill.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.0-dev.3/quill.min.js"></script>
     <script src="https://unpkg.com/quill-better-table@1.2.10/dist/quill-better-table.min.js"></script>
     <script src="./public/js/common.js"></script>
@@ -348,8 +361,28 @@
         });
 
         let tableModule = quill.getModule("better-table");
-        document.body.querySelector("#insert-table").onclick = () => {
-          tableModule.insertTable(3, 3);
+        // document.body.querySelector("#insert-table").onclick = () => {
+        //   tableModule.insertTable(3, 3);
+        // };
+        document.body.querySelector("#insert-table>img").onclick = () => {
+          $(".insert-table__form").fadeIn(300);
+        };
+
+        document.body.querySelector(".insert-table-add").onclick = () => {
+          // 讓使用者輸入行數與列數
+          const rows = parseInt($(".table-col").val());
+          const cols = parseInt($(".table-row").val());
+
+          if (!rows || !cols || rows <= 0 || cols <= 0) {
+    alert("請輸入有效的列數與欄數！");
+    return;
+  }
+
+          // 插入表格
+          let tableModule = quill.getModule("better-table");
+          tableModule.insertTable(rows, cols);
+          $(".insert-table__form").fadeOut(300);
+
         };
       };
 
@@ -481,13 +514,11 @@
 
     <script>
       $(".btn-record").click(function () {
-        // $(".ai-func--record").addClass("show");
         $(".ai-func--record").show();
         $(".ai-func--init").hide();
       });
 
       $(".btn-send").click(function () {
-        // $(".ai-func--record").removeClass("show");
         $(this).parents(".ai-func--record").hide();
         $(".ai-func--init").show().css("style", "flex");
       });

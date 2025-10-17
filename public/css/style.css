@@ -1732,6 +1732,94 @@ span {
   right: calc((100vw - 680px) / 2 - 20px - 48px);
 }
 
+.project-detail__main .ql-insertTable {
+  position: relative;
+}
+
+.project-detail__main .ql-insertTable .insert-table__form {
+  position: absolute;
+  width: 156px;
+  padding: 16px;
+  -webkit-box-shadow: 0 10px 12px rgba(55, 150, 160, 0.1);
+          box-shadow: 0 10px 12px rgba(55, 150, 160, 0.1);
+  top: calc(100% + 4px);
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 20px 0 20px 20px;
+  display: none;
+}
+
+.project-detail__main .ql-insertTable .insert-table-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.project-detail__main .ql-insertTable .insert-table-input label {
+  font-size: 12px;
+  width: 32px;
+  color: #333333 !important;
+}
+
+.project-detail__main .ql-insertTable .insert-table-input input {
+  width: calc(100% - 12px - 32px);
+  height: 32px;
+  border-radius: 10px;
+  background-color: #eaf3f5;
+  text-align: center;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: calc((100% - 12px) / 2);
+  padding: 6px;
+  font-size: 12px;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom a.btn-border-primary-only-text {
+  color: #3796a0;
+  border: 1px solid #3796a0;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom a.btn-border-primary-only-text:hover {
+  color: #ffffff;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom a.btn-bg-primary-only-text {
+  color: #ffffff;
+  border: 1px solid #3796a0;
+}
+
+.project-detail__main .ql-insertTable .insert-table-bottom a.btn-bg-primary-only-text:hover {
+  background-color: transparent;
+  color: #3796a0;
+}
+
+.project-detail__main .qlbt-col-tool {
+  display: none !important;
+}
+
 .project-detail__nav {
   padding: 20px 0;
   background-color: #ffffff;
@@ -1831,6 +1919,11 @@ span {
   .project-detail__content .editor {
     width: calc(100vw - 280px - 60px);
     margin-right: 20px;
+  }
+  .project-detail__main .ql-insertTable .insert-table__form {
+    top: inherit;
+    bottom: calc(100% + 4px);
+    border-radius: 20px 20px 0 20px;
   }
 }
 

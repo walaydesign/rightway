@@ -1110,3 +1110,73 @@ span {
 .ui-datepicker-title {
   white-space: normal;
 }
+
+.password-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  .strength {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    span {
+      font-size: 14px;
+      display: block;
+    }
+    &__title {
+      color: #9CACB0;
+      padding-right: 8px;
+      margin-right: 8px;
+      position: relative;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 13px;
+        background-color: #C8C8C8;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+    &-weak, &-medium, &-strong {
+      font-weight: 700;
+    }
+    &-weak {
+      color: #E11111;
+    }
+    &-medium {
+      color: $yellow;
+    }
+    &-strong {
+      color: #15D458;
+    }
+  }
+  .inconsistence {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    &__icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #E11111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 12px;
+        &::before {
+          color: #E11111;
+        }
+      }
+    }
+    >span {
+      color: #E11111;
+      font-size: 14px;
+    }
+  }
+}

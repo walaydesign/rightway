@@ -1388,6 +1388,110 @@ span {
   white-space: normal;
 }
 
+.password-state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+
+.password-state .strength {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.password-state .strength span {
+  font-size: 14px;
+  display: block;
+}
+
+.password-state .strength__title {
+  color: #9CACB0;
+  padding-right: 8px;
+  margin-right: 8px;
+  position: relative;
+}
+
+.password-state .strength__title::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 13px;
+  background-color: #C8C8C8;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.password-state .strength-weak, .password-state .strength-medium, .password-state .strength-strong {
+  font-weight: 700;
+}
+
+.password-state .strength-weak {
+  color: #E11111;
+}
+
+.password-state .strength-medium {
+  color: #f8ae00;
+}
+
+.password-state .strength-strong {
+  color: #15D458;
+}
+
+.password-state .inconsistence {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+}
+
+.password-state .inconsistence__icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #E11111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.password-state .inconsistence__icon span {
+  font-size: 12px;
+}
+
+.password-state .inconsistence__icon span::before {
+  color: #E11111;
+}
+
+.password-state .inconsistence > span {
+  color: #E11111;
+  font-size: 14px;
+}
+
 .project-list {
   padding-top: 20px;
   max-width: 1000px;

@@ -354,9 +354,9 @@
         .ql-insertTable {
           .insert-table {
             &__form {
-            top: inherit;
-            bottom: calc(100% + 4px);
-border-radius: 20px 20px 0 20px;
+              top: inherit;
+              bottom: calc(100% + 4px);
+              border-radius: 20px 20px 0 20px;
             }
           }
         }
@@ -693,6 +693,13 @@ border-radius: 20px 20px 0 20px;
         margin-bottom: 12px;
       }
     }
+    .ai-file-item {
+      margin-left: auto;
+      margin-bottom: 12px;
+      .ai-file__delete {
+        display: none;
+      }
+    }
   }
   &-func {
     display: flex;
@@ -700,7 +707,7 @@ border-radius: 20px 20px 0 20px;
     gap: 12px;
     padding: 16px 0;
     background-color: $white;
-    >input {
+    > input {
       width: calc(100% - 130px - 96px - 36px);
       border-radius: 100px;
       background-color: $primary-100;
@@ -740,6 +747,75 @@ border-radius: 20px 20px 0 20px;
         height: 100%;
         top: 0;
         left: 0;
+      }
+    }
+  }
+  &-file {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 60px;
+    background-color: $white;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 0 12px;
+    border-bottom: 1px solid $primary-200;
+    display: none;
+    &__pic {
+      width: 72px;
+      height: 72px;
+      position: relative;
+      &-inner {
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      >img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+      }
+
+      }
+    }
+    &__delete {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: $blue;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      transition: $transition;
+      span {
+        font-size: 15px;
+        &::before {
+          color: $white;
+        }
+      }
+      &:hover {
+        background-color: $yellow;
+      }
+    }
+    &__other {
+      position: relative;
+      width: fit-content;
+      background-color: $primary-100;
+      border-radius: 12px;
+      padding: 10px 16px;
+      p {
+        color: $text;
+        font-size: 14px;
+        margin: 0;
       }
     }
   }

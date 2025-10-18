@@ -91,15 +91,17 @@
                   <div class="insert-table__form">
                     <div class="insert-table-input">
                       <label for="">欄數</label>
-                      <input type="number" class="table-col">
+                      <input type="number" class="table-col" />
                     </div>
                     <div class="insert-table-input">
                       <label for="">列數</label>
-                      <input type="number" class="table-row">
+                      <input type="number" class="table-row" />
                     </div>
                     <div class="insert-table-bottom">
                       <a class="btn-border-primary-only-text">取消</a>
-                      <a class="btn-bg-primary-only-text insert-table-add">確定</a>
+                      <a class="btn-bg-primary-only-text insert-table-add"
+                        >確定</a
+                      >
                     </div>
                   </div>
                 </button>
@@ -166,6 +168,7 @@
       </div>
       <div class="sidebar-content">
         <div class="ai-chat">
+          <div class="ai-chat__inner">
           <h1>我們該從哪裡開始？</h1>
           <div class="ai-chat__my">
             <p>請根據這個學生社會技巧能力現況，規劃一學期的學期目標</p>
@@ -201,15 +204,32 @@
               <p>重新生成</p>
             </button>
           </div>
+          </div>
+        </div>
+        <div class="ai-file">
+          <!-- <div class="ai-file__pic ai-file-item">
+            <div class="ai-file__pic-inner">
+              <img src="./public/img/logo.png" alt="" />
+            </div>
+            <button class="ai-file__delete">
+              <span class="icon-x"></span>
+            </button>
+          </div>
+          <div class="ai-file__other ai-file-item">
+            <p>檔案名稱檔案名稱.doc</p>
+            <button class="ai-file__delete">
+              <span class="icon-x"></span>
+            </button>
+          </div> -->
         </div>
         <div class="ai-func ai-func--init">
           <button class="btn btn-border-primary btn-upload">
             <span class="icon-export"></span>
             <p>上傳檔案</p>
-            <input type="file">
+            <input type="file" />
           </button>
-          <input type="text" placeholder="請輸入..." />
-          <button class="btn btn-bg-yellow-only-icon">
+          <input class="ai-func__input" type="text" placeholder="請輸入..." />
+          <button class="btn btn-bg-yellow-only-icon btn-send">
             <span class="icon-send"></span>
           </button>
           <button
@@ -361,28 +381,23 @@
         });
 
         let tableModule = quill.getModule("better-table");
-        // document.body.querySelector("#insert-table").onclick = () => {
-        //   tableModule.insertTable(3, 3);
-        // };
         document.body.querySelector("#insert-table>img").onclick = () => {
           $(".insert-table__form").fadeIn(300);
         };
 
         document.body.querySelector(".insert-table-add").onclick = () => {
-          // 讓使用者輸入行數與列數
           const rows = parseInt($(".table-col").val());
           const cols = parseInt($(".table-row").val());
 
           if (!rows || !cols || rows <= 0 || cols <= 0) {
-    alert("請輸入有效的列數與欄數！");
-    return;
-  }
+            alert("請輸入有效的列數與欄數！");
+            return;
+          }
 
           // 插入表格
           let tableModule = quill.getModule("better-table");
           tableModule.insertTable(rows, cols);
           $(".insert-table__form").fadeOut(300);
-
         };
       };
 
@@ -392,17 +407,17 @@
         );
       }
 
-      $(".ai-chat__my .btn-edit").click(function () {
+      $(document).on("click",".ai-chat__my .btn-edit",function() {
         let val = $(this).parents(".ai-chat__my").children("p").text();
         $(this).parents(".ai-chat__my").addClass("edit");
         $(this).parents(".ai-chat__my").find("textarea").val(val);
-      });
+      })
 
-      $(".btn-edit-check").click(function () {
+      $(document).on("click",".btn-edit-check",function() {
         let val = $(this).parents(".ai-chat__my").find("textarea").val();
         $(this).parents(".ai-chat__my").children("p").text(val);
         $(this).parents(".ai-chat__my").removeClass("edit");
-      });
+      })
 
       $(".chat-history__item").click(function () {
         $(this)
@@ -522,6 +537,85 @@
         $(this).parents(".ai-func--record").hide();
         $(".ai-func--init").show().css("style", "flex");
       });
+    </script>
+
+    <script>
+      $(document).on("click", ".ai-file__delete", function () {
+        $(this).parents(".ai-file-item").remove();
+        let itemNum = $(".ai-file-item").length;
+        if (itemNum < 1) {
+          $(".ai-file").hide();
+        }
+      });
+
+      let input_file = $(".btn-upload");
+      input_file.change(function (e) {
+        const fileData = e.target.files[0];
+        if (!fileData) return;
+
+        const fileType = fileData.type;
+        const fileName = fileData.name;
+
+        let btnDelete = $(
+          "<button class='ai-file__delete'><span class='icon-x'></span></button>"
+        );
+
+        if (fileType.startsWith("image/")) {
+          let filePic = $(
+            "<div class='ai-file__pic ai-file-item'><div class='ai-file__pic-inner'><img></div></div>"
+          );
+          filePic.append(btnDelete);
+          const reader = new FileReader();
+          reader.onload = function (ev) {
+            filePic.find("img").attr("src", ev.target.result);
+          };
+          reader.readAsDataURL(fileData);
+          $(".ai-file").append(filePic);
+        } else {
+          let fileText = $("<p></p>").text(fileName);
+          let fileOther = $("<div class='ai-file__other ai-file-item'></div>");
+          fileOther.append(fileText, btnDelete);
+          $(".ai-file").append(fileOther);
+        }
+          $(".ai-file").show().css("display","flex");
+      });
+
+      function readURL(target, file) {
+        let img = file.find("img");
+        if (target.files && target.files[0]) {
+          let reader = new FileReader();
+          reader.onload = function (e) {
+            img.attr("src", "");
+            img.attr("src", e.target.result);
+          };
+          reader.readAsDataURL(target.files[0]);
+        }
+        console.log(e.target.result);
+      }
+    </script>
+    <script>
+      $(".btn-send").click(function() {
+        if($(".ai-file .ai-file-item").length > 0) {
+          let fileContent = $(".ai-file").html();
+          $(".ai-chat__inner").append(fileContent);
+        }
+        if($(".ai-func__input").val() != "") {
+          let inputText = $(".ai-func__input").val();
+        let chatContent = $("<div class='ai-chat__my'></div>");
+        let chatContentTextarea = $("<textarea></textarea>");
+        let chatContentEdit = $("<button class='btn-nobuffer btn-edit'><span class='icon-edit1'></span><p>編輯</p></button>");
+        let chatContentCheck = $("<button class='btn-edit-check'>確定</button>");
+          let chatContentText = $("<p></p>").text(inputText);
+        chatContent.append(chatContentText, chatContentTextarea, chatContentEdit, chatContentCheck);
+        $(".ai-chat__inner").append(chatContent);
+        }
+
+        $(".ai-func__input").val("");
+        $(".ai-file").hide();
+
+        let top = $(".ai-chat").height();
+        $(".ai-chat").animate({scrollTop: top});
+      })
     </script>
   </body>
 </html>
